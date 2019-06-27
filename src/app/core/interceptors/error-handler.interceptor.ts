@@ -20,13 +20,13 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
       .handle(req)
       .pipe(
         catchError((err: HttpErrorResponse) => {
-
+          console.log(err);
           /**
            * Handle unauthorized error
            */
           if (err.status === 401) {
             this.authService.removeToken();
-            this.router.navigate(['/']);
+            this.router.navigate(['/login']);
           }
 
           return throwError(err);

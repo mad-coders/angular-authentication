@@ -4,6 +4,9 @@ import { LoginComponent } from './login.component';
 /** Components */
 import { RouterModule } from '@angular/router';
 
+/** Modules */
+import { SharedModule } from 'src/app/shared/shared.module';
+
 const routes: any[] = [
   {
     path: '',
@@ -20,6 +23,7 @@ const components: any[] = [
     ...components,
   ],
   imports: [
+    SharedModule,
     RouterModule.forChild(routes),
   ],
   providers: [],
