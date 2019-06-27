@@ -20,7 +20,6 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
       .handle(req)
       .pipe(
         catchError((err: HttpErrorResponse) => {
-          console.log(err);
           /**
            * Handle unauthorized error
            */
