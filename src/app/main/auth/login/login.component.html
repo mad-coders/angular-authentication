@@ -3,7 +3,7 @@
     <h3>Login</h3>
     <form name="loginForm" [formGroup]="loginForm" (submit)="onLoginFormSubmit()">
       <div class="input-wrapper">
-        <input type="text" placeholder="username" name="userName" formControlName="userName" required/>
+        <input type="text" placeholder="username" name="username" formControlName="username" required/>
       </div>
       <div class="input-wrapper">
         <input type="password" placeholder="password" name="password" formControlName="password" required/>
@@ -19,7 +19,7 @@
     <h3>Register</h3>
     <form name="registerForm" [formGroup]="registerForm" (submit)="onRegisterFormSubmit()">
       <div class="input-wrapper">
-        <input type="text" placeholder="username" name="userName" formControlName="userName" />
+        <input type="text" placeholder="username" name="username" formControlName="username" />
       </div>
       <div class="input-wrapper">
         <input type="password" placeholder="password" name="password" formControlName="password" />
