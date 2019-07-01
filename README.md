@@ -1,27 +1,33 @@
-# angular-auth-frontend
+## angular-jwt-auth
 
-## Run develop
-
-Steps: 
-1. npm i
-2. npm start
-
-URL: http://localhost:4200
-
-## Auth configure
-
-1. Route protection example
+## Import module into app.module.ts
+```javascript
+@NgModule({
+  ...
+  imports: [
+    ...
+    MadcodersAngularJwtAuthModule,
+  ],
+  ...
+})
+export class AppModule { }
 ```
-const routes: any[] = [
-  {
-    path: 'login',
-    loadChildren: './login/login.module#LoginModule',
-  },
+
+## Protect route with guard 
+```javascript
+...
   {
     path: 'test',
     loadChildren: './test/test.module#TestModule',
-    canActivate: [AuthGuard],
+    canActivate: [MadcodersAngularJwtAuthGuard],
   },
-];
 ```
-Route `test` is protected by token
+
+## Inject madcoders-angular-jwt-auth.service for methods
+```javascript
+public getAuthToken(): string {}
+
+public setAuthToken(token: string): void {}
+
+public removeToken(): void {}
+```
