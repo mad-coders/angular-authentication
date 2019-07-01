@@ -17,6 +17,20 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "angular-jwt": [
+        "dist/angular-jwt"
+      ],
+      "angular-jwt/*": [
+        "dist/angular-jwt/*"
+      ],
+      "madcoders-angular-jwt-auth": [
+        "dist/madcoders-angular-jwt-auth"
+      ],
+      "madcoders-angular-jwt-auth/*": [
+        "dist/madcoders-angular-jwt-auth/*"
+      ]
+    }
   }
 }

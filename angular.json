@@ -134,6 +134,41 @@
           }
         }
       }
+    },
+    "madcoders-angular-jwt-auth": {
+      "root": "projects/madcoders-angular-jwt-auth",
+      "sourceRoot": "projects/madcoders-angular-jwt-auth/src",
+      "projectType": "library",
+      "prefix": "madcoders",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/madcoders-angular-jwt-auth/tsconfig.lib.json",
+            "project": "projects/madcoders-angular-jwt-auth/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/madcoders-angular-jwt-auth/src/test.ts",
+            "tsConfig": "projects/madcoders-angular-jwt-auth/tsconfig.spec.json",
+            "karmaConfig": "projects/madcoders-angular-jwt-auth/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/madcoders-angular-jwt-auth/tsconfig.lib.json",
+              "projects/madcoders-angular-jwt-auth/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "madcoders-angular-jwt"

@@ -21,7 +21,7 @@ const services: any = [
   {
     provide: HTTP_INTERCEPTORS,
     useClass: HttpInterceptor,
-    multi: true
+    multi: true,
   },
   {
     provide: HTTP_INTERCEPTORS,

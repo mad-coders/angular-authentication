@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
             const data = await this.authService.login(loginDto).toPromise();
             this.loginForm.reset();
             this.errorMessage = '';
-            this.authService.setTokenByKey(data.token);
+            this.authService.setAuthToken(data.token);
             this.router.navigate(['/test']);
         } catch (err) {
             this.errorMessage = err.error.message;

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MadcodersAngularJwtAuthService } from 'projects/madcoders-angular-jwt-auth/src/public-api';
 
 import { CreateUserDto } from 'src/app/main/auth/login/dtos/create-user.dto';
 
@@ -13,29 +14,28 @@ import { LoginDto } from 'src/app/main/auth/login/dtos/login.dto';
     providedIn: 'root'
 })
 export class AuthService {
-    private tokenKey = 'jwt-token';
-
-    constructor(private httpClient: HttpClient) { }
+    constructor(private httpClient: HttpClient,
+                private madcodersAngularJwtAuthService: MadcodersAngularJwtAuthService) { }
 
     /**
      * Return token
      */
-    public getTokenByKey(): string {
-        return localStorage.getItem(this.tokenKey);
-    }
-
-    /**
-     * Set token
-     */
-    public setTokenByKey(token: string): void {
-        return localStorage.setItem(this.tokenKey, token);
+    public getAuthToken(): string {
+        return this.madcodersAngularJwtAuthService.getAuthToken();
     }
 
     /**
      * Remove auth token
      */
     public removeToken(): void {
-        return localStorage.removeItem(this.tokenKey);
+        return this.madcodersAngularJwtAuthService.removeToken();
+    }
+
+    /**
+     * Set token
+     */
+    public setAuthToken(token: string): void {
+        return this.madcodersAngularJwtAuthService.setAuthToken(token);
     }
 
     /**
