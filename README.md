@@ -1,6 +1,6 @@
 ## angular-jwt-auth
 
-## Import module into app.module.ts
+## Import MadcodersAngularJwtAuthModule into app.module.ts
 ```javascript
 @NgModule({
   ...
@@ -13,7 +13,7 @@
 export class AppModule { }
 ```
 
-## Protect route with guard 
+## Protect route with MadcodersAngularJwtAuthGuard 
 ```javascript
 ...
   {
@@ -23,7 +23,7 @@ export class AppModule { }
   },
 ```
 
-## Inject madcoders-angular-jwt-auth.service for methods
+## Inject MadcodersAngularJwtAuthService for methods
 ```javascript
 public getAuthToken(): string {}
 
