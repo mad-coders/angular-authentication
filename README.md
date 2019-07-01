@@ -1,33 +1,9 @@
-## angular-jwt-auth
+# angular-auth-frontend
 
-## Import MadcodersAngularJwtAuthModule into app.module.ts
-```javascript
-@NgModule({
-  ...
-  imports: [
-    ...
-    MadcodersAngularJwtAuthModule,
-  ],
-  ...
-})
-export class AppModule { }
-```
+## Run develop
 
-## Protect route with MadcodersAngularJwtAuthGuard 
-```javascript
-...
-  {
-    path: 'test',
-    loadChildren: './test/test.module#TestModule',
-    canActivate: [MadcodersAngularJwtAuthGuard],
-  },
-```
+Steps: 
+1. npm i
+2. npm start
 
-## Inject MadcodersAngularJwtAuthService for methods
-```javascript
-public getAuthToken(): string {}
-
-public setAuthToken(token: string): void {}
-
-public removeToken(): void {}
-```
+URL: http://localhost:4200

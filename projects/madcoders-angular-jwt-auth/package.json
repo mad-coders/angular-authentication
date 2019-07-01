@@ -1,0 +1,13 @@
+{
+  "name": "madcoders-angular-jwt-auth",
+  "author": "Maxim Dobrolinsky",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/mad-coders/angular-auth-frontend/src/master/"
+  },
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
+  }
+}
