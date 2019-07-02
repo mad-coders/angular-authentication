@@ -25,7 +25,6 @@ export class MadcodersAngularAuthLoginComponent implements OnInit {
                 private router: Router) {}
 
     async ngOnInit() {
-        console.log('tst');
         this.loginForm = this.formBuilder.group({
             username: [''],
             password: [''],
