@@ -31,3 +31,12 @@ public setAuthToken(token: string): void {}
 
 public removeToken(): void {}
 ```
+MadcodersAngularJwtAuthService use apiUrl that stored at project environment
+
+Example:
+```javascript
+export const environment = {
+  production: true,
+  apiUrl: 'https://23781gifif.execute-api.us-east-1.amazonaws.com/production',
+};
+```
