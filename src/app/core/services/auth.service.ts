@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MadcodersAngularJwtAuthService } from 'projects/madcoders-angular-jwt-auth/src/public-api';
 
-import { CreateUserDto } from 'src/app/main/auth/login/dtos/create-user.dto';
+// import { CreateUserDto } from 'src/app/main/auth/login/dtos/create-user.dto';
 
 import { IUser } from 'src/app/shared/interfaces/user.interface';
 
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { LoginDto } from 'src/app/main/auth/login/dtos/login.dto';
+// import { LoginDto } from 'src/app/main/auth/login/dtos/login.dto';
 
 @Injectable({
     providedIn: 'root'
@@ -36,22 +36,6 @@ export class AuthService {
      */
     public setAuthToken(token: string): void {
         return this.madcodersAngularJwtAuthService.setAuthToken(token);
-    }
-
-    /**
-     * Login
-     * @param loginDto
-     */
-    public login(loginDto: LoginDto): Observable<{ token: string; }> {
-        return this.httpClient.post<{ token: string; }>(`${environment.apiUrl}/login`, loginDto);
-    }
-
-    /**
-     * Get supplier products
-     * @param supplierId
-     */
-    public register(user: CreateUserDto): Observable<IUser> {
-        return this.httpClient.post<IUser>(`${environment.apiUrl}/register`, user);
     }
 
     /**

@@ -6,22 +6,26 @@ import { CreateUserDto } from './dtos/create-user.dto';
 
 import { AuthService } from 'src/app/core/services/auth.service';
 import { LoginDto } from './dtos/login.dto';
+import { MadcodersAngularJwtAuthService } from '../../madcoders-angular-jwt-auth.service';
+import { MadcodersAngularJwtAuthLoginService } from './madcoders-angular-jwt-auth-login.service';
 
 @Component({
-    selector: 'app-login-component',
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss'],
+    selector: 'madcoders-angular-jwt-auth-login',
+    templateUrl: './madcoders-angular-jwt-auth-login.component.html',
+    styleUrls: ['./madcoders-angular-jwt-auth-login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class MadcodersAngularAuthLoginComponent implements OnInit {
     public loginForm: FormGroup;
     public registerForm: FormGroup;
     public errorMessage: string;
 
     constructor(private formBuilder: FormBuilder,
-                private authService: AuthService,
+                private madcodersAngularJwtAuthService: MadcodersAngularJwtAuthLoginService,
+                private authService: MadcodersAngularJwtAuthService,
                 private router: Router) {}
 
     async ngOnInit() {
+        console.log('tst');
         this.loginForm = this.formBuilder.group({
             username: [''],
             password: [''],
@@ -40,7 +44,7 @@ export class LoginComponent implements OnInit {
         const user: CreateUserDto = this.registerForm.getRawValue();
 
         try {
-            await this.authService.register(user).toPromise();
+            await this.madcodersAngularJwtAuthService.register(user).toPromise();
             this.registerForm.reset();
             this.errorMessage = '';
         } catch (err) {
@@ -52,7 +56,7 @@ export class LoginComponent implements OnInit {
         const loginDto: LoginDto = this.loginForm.getRawValue();
 
         try {
-            const data = await this.authService.login(loginDto).toPromise();
+            const data = await this.madcodersAngularJwtAuthService.login(loginDto).toPromise();
             this.loginForm.reset();
             this.errorMessage = '';
             this.authService.setAuthToken(data.token);
