@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { LoginDto } from './dtos/login.dto';
 import { IUser } from 'src/app/shared/interfaces/user.interface';
 import { CreateUserDto } from './dtos/create-user.dto';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
