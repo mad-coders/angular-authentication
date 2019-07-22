@@ -7,7 +7,8 @@
     "url": "https://bitbucket.org/mad-coders/angular-auth-frontend/src/master/"
   },
   "peerDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0"
-  }
+    "@angular/common": "7.2.0",
+    "@angular/core": "7.2.0"
+  },
+  "dependencies": {}
 }

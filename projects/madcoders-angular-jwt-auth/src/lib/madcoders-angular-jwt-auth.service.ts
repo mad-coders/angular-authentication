@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +7,7 @@ export class MadcodersAngularJwtAuthService {
 
   private tokenKey = 'jwt-token';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor() { }
 
   /**
    * Return token
@@ -29,5 +28,31 @@ export class MadcodersAngularJwtAuthService {
    */
   public removeToken(): void {
     return localStorage.removeItem(this.tokenKey);
+  }
+
+  /**
+   * Check token expire
+   */
+  public isTokenExpired(): boolean {
+    const token = this.getAuthToken();
+    const jwtPayload = this.getJwtPayload(token);
+    if (!jwtPayload || !jwtPayload.hasOwnProperty('exp')) {
+      return null;
+    }
+
+    const expirationDate = jwtPayload.exp;
+    const nowDate = Date.now() / 1000;
+
+    return expirationDate < nowDate;
+  }
+
+  private getJwtPayload(token: string): any {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map((c) => {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
   }
 }
