@@ -35,15 +35,19 @@ export class AngularJwtAuthService {
    */
   public isTokenExpired(): boolean {
     const token = this.getAuthToken();
-    const jwtPayload = this.getJwtPayload(token);
-    if (!jwtPayload || !jwtPayload.hasOwnProperty('exp')) {
-      return null;
+    try {
+      const jwtPayload = this.getJwtPayload(token);
+      if (!jwtPayload || !jwtPayload.hasOwnProperty('exp')) {
+        return null;
+      }
+
+      const expirationDate = jwtPayload.exp;
+      const nowDate = Date.now() / 1000;
+
+      return expirationDate < nowDate;
+    } catch (err) {
+      return true;
     }
-
-    const expirationDate = jwtPayload.exp;
-    const nowDate = Date.now() / 1000;
-
-    return expirationDate < nowDate;
   }
 
   private getJwtPayload(token: string): any {

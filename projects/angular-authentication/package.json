@@ -1,7 +1,7 @@
 {
-  "name": "angular-authentication",
+  "name": "@madcoders/angular-authentication",
   "author": "Maxim Dobrolinsky",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/mad-coders/angular-authentication "

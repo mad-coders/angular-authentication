@@ -26,15 +26,3 @@ public removeToken(): void {}
 
 public isTokenExpired(): boolean {}
 ```
-
-
-
-## Protect route with AngularJwtAuthGuard 
-```javascript
-...
-  {
-    path: 'test',
-    loadChildren: './test/test.module#TestModule',
-    canActivate: [AngularJwtAuthGuard],
-  },
-```
