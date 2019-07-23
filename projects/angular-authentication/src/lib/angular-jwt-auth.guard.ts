@@ -13,8 +13,6 @@ export class AngularJwtAuthGuard implements CanActivate {
 
   canActivate(): boolean {
     if (!this.auth.getAuthToken() || this.auth.isTokenExpired()) {
-      this.router.navigate(['login']);
-
       return false;
     }
 
