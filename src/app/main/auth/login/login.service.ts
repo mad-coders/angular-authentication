@@ -3,14 +3,14 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { LoginDto } from './dtos/login.dto';
-import { IUser } from 'src/app/shared/interfaces/user.interface';
 import { CreateUserDto } from './dtos/create-user.dto';
-import { env } from '../../../environments/environment';
+import { IUser } from 'src/app/shared/interfaces/user.interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MadcodersAngularJwtAuthLoginService {
+export class LoginService {
 
   constructor(private httpClient: HttpClient) {}
   /**
@@ -18,7 +18,7 @@ export class MadcodersAngularJwtAuthLoginService {
    * @param loginDto
    */
   public login(loginDto: LoginDto): Observable<{ token: string; }> {
-    return this.httpClient.post<{ token: string; }>(`${env.apiUrl}/login`, loginDto);
+    return this.httpClient.post<{ token: string; }>(`${environment.apiUrl}/login`, loginDto);
   }
 
   /**
@@ -26,6 +26,6 @@ export class MadcodersAngularJwtAuthLoginService {
    * @param supplierId
    */
   public register(user: CreateUserDto): Observable<IUser> {
-    return this.httpClient.post<IUser>(`${env.apiUrl}/register`, user);
+    return this.httpClient.post<IUser>(`${environment.apiUrl}/register`, user);
   }
 }

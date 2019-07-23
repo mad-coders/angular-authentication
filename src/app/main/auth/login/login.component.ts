@@ -6,21 +6,21 @@ import { CreateUserDto } from './dtos/create-user.dto';
 
 import { AuthService } from 'src/app/core/services/auth.service';
 import { LoginDto } from './dtos/login.dto';
-import { MadcodersAngularJwtAuthService } from '../../madcoders-angular-jwt-auth.service';
-import { MadcodersAngularJwtAuthLoginService } from './madcoders-angular-jwt-auth-login.service';
+import { LoginService } from './login.service';
+import { MadcodersAngularJwtAuthService } from 'projects/madcoders-angular-jwt-auth/src/public-api';
 
 @Component({
-    selector: 'madcoders-angular-jwt-auth-login',
-    templateUrl: './madcoders-angular-jwt-auth-login.component.html',
-    styleUrls: ['./madcoders-angular-jwt-auth-login.component.scss'],
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
 })
-export class MadcodersAngularAuthLoginComponent implements OnInit {
+export class LoginComponent implements OnInit {
     public loginForm: FormGroup;
     public registerForm: FormGroup;
     public errorMessage: string;
 
     constructor(private formBuilder: FormBuilder,
-                private madcodersAngularJwtAuthService: MadcodersAngularJwtAuthLoginService,
+                private loginService: LoginService,
                 private authService: MadcodersAngularJwtAuthService,
                 private router: Router) {}
 
@@ -43,7 +43,7 @@ export class MadcodersAngularAuthLoginComponent implements OnInit {
         const user: CreateUserDto = this.registerForm.getRawValue();
 
         try {
-            await this.madcodersAngularJwtAuthService.register(user).toPromise();
+            await this.loginService.register(user).toPromise();
             this.registerForm.reset();
             this.errorMessage = '';
         } catch (err) {
@@ -55,7 +55,7 @@ export class MadcodersAngularAuthLoginComponent implements OnInit {
         const loginDto: LoginDto = this.loginForm.getRawValue();
 
         try {
-            const data = await this.madcodersAngularJwtAuthService.login(loginDto).toPromise();
+            const data = await this.loginService.login(loginDto).toPromise();
             this.loginForm.reset();
             this.errorMessage = '';
             this.authService.setAuthToken(data.token);

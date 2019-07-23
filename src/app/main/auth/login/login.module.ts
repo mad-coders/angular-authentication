@@ -4,17 +4,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /** Components */
-import { MadcodersAngularAuthLoginComponent } from './madcoders-angular-jwt-auth-login.component';
+import { LoginComponent } from './login.component';
 
 const routes: any[] = [
   {
     path: '',
-    component: MadcodersAngularAuthLoginComponent,
+    component: LoginComponent,
   }
 ];
 
 const components: any[] = [
-  MadcodersAngularAuthLoginComponent,
+  LoginComponent,
 ];
 
 @NgModule({
@@ -32,4 +32,4 @@ const components: any[] = [
     ...components,
   ],
 })
-export class MadcodersAngularJwtAuthLoginModule { }
+export class LoginModule { }

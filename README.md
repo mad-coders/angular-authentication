@@ -8,14 +8,29 @@ Steps:
 
 URL: http://localhost:4200
 
-## Add login module at exist project
+
+## Add Auth Guard
 ```javascript
-const routes: any[] = [
-  ...
-  {
-    path: 'login',
-    loadChildren: 'projects/madcoders-angular-jwt-auth/src/public-api#MadcodersAngularJwtAuthModule',
-  },
+{
+    path: 'test',
+    loadChildren: './test/test.module#TestModule',
+    canActivate: [MadcodersAngularJwtAuthGuard],
+},
+```
+
+
+## Use AuthService
+
+### 1. Import MadcodersAngularJwtAuthService into component
+```javascript
+constructor(...
+            private authService: MadcodersAngularJwtAuthService,
+            ...) {}
   ...
 ];
+```
+
+### 2. After success login set jwt token
+```javascript
+  this.authService.setAuthToken(data.token);
 ```

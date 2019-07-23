@@ -7,7 +7,7 @@ import { MadcodersAngularJwtAuthGuard } from 'projects/madcoders-angular-jwt-aut
 const routes: any[] = [
   {
     path: 'login',
-    loadChildren: 'projects/madcoders-angular-jwt-auth/src/public-api#MadcodersAngularJwtAuthModule',
+    loadChildren: './login/login.module#LoginModule',
   },
   {
     path: 'test',
