@@ -2,10 +2,10 @@
 
 ## Use Auth Service
 
-### 1. Import MadcodersAngularJwtAuthService into component
+### 1. Import AngularJwtAuthService into component
 ```javascript
 constructor(...
-            private authService: MadcodersAngularJwtAuthService,
+            private authService: AngularJwtAuthService,
             ...) {}
   ...
 ];
@@ -16,7 +16,7 @@ constructor(...
   this.authService.setAuthToken(data.token);
 ```
 
-## MadcodersAngularJwtAuthService methods
+## AngularJwtAuthService methods
 ```javascript
 public getAuthToken(): string {}
 
@@ -29,12 +29,12 @@ public isTokenExpired(): boolean {}
 
 
 
-## Protect route with MadcodersAngularJwtAuthGuard 
+## Protect route with AngularJwtAuthGuard 
 ```javascript
 ...
   {
     path: 'test',
     loadChildren: './test/test.module#TestModule',
-    canActivate: [MadcodersAngularJwtAuthGuard],
+    canActivate: [AngularJwtAuthGuard],
   },
 ```

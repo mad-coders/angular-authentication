@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class MadcodersAngularJwtAuthService {
+export class AngularJwtAuthService {
 
   private tokenKey = 'jwt-token';
 

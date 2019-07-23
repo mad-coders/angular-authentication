@@ -25,11 +25,11 @@
       "angular-jwt/*": [
         "dist/angular-jwt/*"
       ],
-      "madcoders-angular-jwt-auth": [
-        "dist/madcoders-angular-jwt-auth"
+      "angular-authentication": [
+        "dist/angular-authentication"
       ],
-      "madcoders-angular-jwt-auth/*": [
-        "dist/madcoders-angular-jwt-auth/*"
+      "angular-authentication/*": [
+        "dist/angular-authentication/*"
       ]
     }
   }

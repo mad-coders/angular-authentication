@@ -7,7 +7,7 @@ import { CreateUserDto } from './dtos/create-user.dto';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { LoginDto } from './dtos/login.dto';
 import { LoginService } from './login.service';
-import { MadcodersAngularJwtAuthService } from 'projects/madcoders-angular-jwt-auth/src/public-api';
+import { AngularJwtAuthService } from 'projects/angular-authentication/src/public-api';
 
 @Component({
     selector: 'app-login',
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder,
                 private loginService: LoginService,
-                private authService: MadcodersAngularJwtAuthService,
+                private authService: AngularJwtAuthService,
                 private router: Router) {}
 
     async ngOnInit() {

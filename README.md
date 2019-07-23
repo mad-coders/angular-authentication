@@ -14,17 +14,17 @@ URL: http://localhost:4200
 {
     path: 'test',
     loadChildren: './test/test.module#TestModule',
-    canActivate: [MadcodersAngularJwtAuthGuard],
+    canActivate: [AngularJwtAuthGuard],
 },
 ```
 
 
 ## Use AuthService
 
-### 1. Import MadcodersAngularJwtAuthService into component
+### 1. Import AngularJwtAuthService into component
 ```javascript
 constructor(...
-            private authService: MadcodersAngularJwtAuthService,
+            private authService: AngularJwtAuthService,
             ...) {}
   ...
 ];

@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 
 /* Services */
-import { MadcodersAngularJwtAuthService } from './madcoders-angular-jwt-auth.service';
+import { AngularJwtAuthService } from './angular-jwt-auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MadcodersAngularJwtAuthGuard implements CanActivate {
-  constructor(private auth: MadcodersAngularJwtAuthService,
+export class AngularJwtAuthGuard implements CanActivate {
+  constructor(private auth: AngularJwtAuthService,
               private router: Router) { }
 
   canActivate(): boolean {

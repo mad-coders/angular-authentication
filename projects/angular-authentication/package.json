@@ -1,10 +1,10 @@
 {
-  "name": "madcoders-angular-jwt-auth",
+  "name": "angular-authentication",
   "author": "Maxim Dobrolinsky",
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/mad-coders/angular-auth-frontend/src/master/"
+    "url": "https://github.com/mad-coders/angular-authentication "
   },
   "peerDependencies": {
     "@angular/common": "7.2.0",

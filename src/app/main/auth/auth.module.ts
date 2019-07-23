@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MadcodersAngularJwtAuthGuard } from 'projects/madcoders-angular-jwt-auth/src/public-api';
+import { AngularJwtAuthGuard } from 'projects/angular-authentication/src/public-api';
 
 /** Routes */
 const routes: any[] = [
@@ -12,7 +12,7 @@ const routes: any[] = [
   {
     path: 'test',
     loadChildren: './test/test.module#TestModule',
-    canActivate: [MadcodersAngularJwtAuthGuard],
+    canActivate: [AngularJwtAuthGuard],
   },
 ];
 

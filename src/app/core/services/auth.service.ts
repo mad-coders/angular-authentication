@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MadcodersAngularJwtAuthService } from 'projects/madcoders-angular-jwt-auth/src/public-api';
+import { AngularJwtAuthService } from 'projects/angular-authentication/src/public-api';
 
 // import { CreateUserDto } from 'src/app/main/auth/login/dtos/create-user.dto';
 
@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
     constructor(private httpClient: HttpClient,
-                private madcodersAngularJwtAuthService: MadcodersAngularJwtAuthService) { }
+                private madcodersAngularJwtAuthService: AngularJwtAuthService) { }
 
     /**
      * Return token
