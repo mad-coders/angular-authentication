@@ -8,18 +8,7 @@ Steps:
 
 URL: http://localhost:4200
 
-
-## Add Auth Guard
-```javascript
-{
-    path: 'test',
-    loadChildren: './test/test.module#TestModule',
-    canActivate: [AngularJwtAuthGuard],
-},
-```
-
-
-## Use AuthService
+## Use Auth Service
 
 ### 1. Import AngularJwtAuthService into component
 ```javascript
@@ -33,4 +22,15 @@ constructor(...
 ### 2. After success login set jwt token
 ```javascript
   this.authService.setAuthToken(data.token);
+```
+
+## AngularJwtAuthService methods
+```javascript
+public getAuthToken(): string {}
+
+public setAuthToken(token: string): void {}
+
+public removeToken(): void {}
+
+public isTokenExpired(): boolean {}
 ```
